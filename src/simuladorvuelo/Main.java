@@ -193,6 +193,11 @@ public class Main {
     }
     
     private static void render()
+    {   
+        simulador.render();
+    }
+    
+    private static void simulatorloop()
     {
         // This line is critical for LWJGL's interoperation with GLFW's
         // OpenGL context, or any context that is managed externally.
@@ -204,11 +209,6 @@ public class Main {
         // Set the clear color
         glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
         
-        simulador.render();
-    }
-    
-    private static void simulatorloop()
-    {
         while (glfwWindowShouldClose(window) == GL_FALSE)
         {
             getinput();
