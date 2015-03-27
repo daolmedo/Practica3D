@@ -19,7 +19,5 @@ public class Draw {
 
     /* Render triangle */
     glDrawArrays(GL_TRIANGLES, 0, 3);
-
-
     }
 }
