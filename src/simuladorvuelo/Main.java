@@ -137,22 +137,27 @@ public class Main {
         // Set the clear color
         glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
+    }
+ 
+    private static void getinput()
+    {
+        System.out.println("Recojo Input del simulador");
+    }
+    
+    private static void render()
+    {   
+        //Dibujo
+        simulador.render();
+        /* Swap buffers and poll Events */
+        glfwSwapBuffers(window); // swap the color buffers
 
-        /// Do not forget to do vertices.flip()! This is important, because passing the buffer without 
-        // flipping will crash your JVM because of a EXCEPTION_ACCESS_VIOLATION.
-
-        //declara los datos
-        FloatBuffer vertices = BufferUtils.createFloatBuffer(3 * 6);
-            vertices.put(-0.6f).put(-0.4f).put(0f).put(1f).put(0f).put(0f);
-            vertices.put(0.6f).put(-0.4f).put(0f).put(0f).put(1f).put(0f);
-            vertices.put(0f).put(0.6f).put(0f).put(0f).put(0f).put(1f);
-            vertices.flip();
-        //Crea un buffer
-        int vbo = glGenBuffers();
-        //Conecto al buffer
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        //Mete los datos declarados en java en el buffer
-        glBufferData(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
+        // Poll for window events. The key callback above will only be
+        // invoked during this call.
+        glfwPollEvents();
+    }
+    
+    private static void simulatorloop()
+    {
 
         //*************** PREPARAR TOL TEMA DE SHADER *************************
 
@@ -185,29 +190,6 @@ public class Main {
         int posAttrib = glGetAttribLocation(shaderProgram, "aVertexPosition");
         glEnableVertexAttribArray(posAttrib);
         glVertexAttribPointer(posAttrib, 3, GL_FLOAT, false, 6 * floatSize, 0);
-    }
- 
-    private static void getinput()
-    {
-        System.out.println("Recojo Input del simulador");
-    }
-    
-    private static void render()
-    {   
-        simulador.render();
-    }
-    
-    private static void simulatorloop()
-    {
-        // This line is critical for LWJGL's interoperation with GLFW's
-        // OpenGL context, or any context that is managed externally.
-        // LWJGL detects the context that is current in the current thread,
-        // creates the ContextCapabilities instance and makes the OpenGL
-        // bindings available for use.
-        GLContext.createFromCurrent();
-
-        // Set the clear color
-        glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
         
         while (glfwWindowShouldClose(window) == GL_FALSE)
         {
