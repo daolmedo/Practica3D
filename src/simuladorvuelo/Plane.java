@@ -45,6 +45,6 @@ public class Plane extends AirportObjects
     
     public void render()
     {
-        System.out.println("Dibujo Avion coord: " + x +", "+ y +", "+ z);
+        Draw.drawplanes();
     }
 }

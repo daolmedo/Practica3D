@@ -7,19 +7,6 @@
 package simuladorvuelo;
 
 import java.util.ArrayList;
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.Sys;
-import static org.lwjgl.glfw.Callbacks.errorCallbackPrint;
-import static org.lwjgl.glfw.GLFW.*;
-import org.lwjgl.glfw.*;
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL15.*;
-import static org.lwjgl.opengl.GL20.*;
-import static org.lwjgl.opengl.GL30.*;
-import org.lwjgl.opengl.GLContext;
-import static org.lwjgl.system.MemoryUtil.NULL;
 
 /**
  *

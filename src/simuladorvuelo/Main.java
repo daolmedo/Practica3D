@@ -49,9 +49,10 @@ public class Main {
     
     public static void main(String[] args) 
     {
-        initSimulator();
         initDisplay();
         initGL();
+        
+        initSimulator();
         simulatorloop();
         clean();
     }
